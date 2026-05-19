@@ -41,47 +41,6 @@ DeepLogic.agda:
 Geminiに手伝ってもらいながら大風呂敷を拡げるようにいろいろなデータ型や関数を定義してここに登録したけど自分自身これらの内容に全然ついていけてないので簡単な定義から少しずつ理解していく。Geminiに手伝ってもらいながら。
 
 
-
-260519
-とりあえず Bool型 Nat型 List型 Array型 _+_関数 _==_関数の定義内容を日本語に置き換えた。Geminiに手伝ってもらいながら。
-
-【Bool型】
-data Bool : Set where
- true : Bool
- false : Bool
-
-これから Bool という名前のデータ型（data）を定義します
-Bool 型自体の型は Set です（Bool は「型」という世界の住人です）
-Bool 型の中身は次の通り（where）です
-true と false という名前の構成子（要素）を持ちます
-true は Bool 型の値（データ）です
-false は Bool 型の値（データ）です
-
-【Nat型】
-data Nat : Set where
- zero : Nat
- suc : Nat → Nat
-
-これから Nat という名前のデータ型（data）を定義します
-Nat 型自体の型は Set です（Nat は「型」という世界の住人です）
-Nat 型の中身は次の通り（where）です
-zero と suc という名前の構成子（要素）を持ちます
-zero は Nat 型の値（データ）です
-suc は Nat 型の値（データ）を入力するとNat 型の値（データ）を出力する構成子です
-
-【List 型】
-data List (A : Set) : Set where
-  []   : List A
-  _::_ : A → List A → List A
-
-これから List という名前のデータ型（data）を定義します
-この List は、Set 型の住人である任意の型 A を1つ入力として受け取ります
-型 A を受け取って出来上がる List A 型自体の型は Set です（List A は「型」という世界の住人です）
-List A 型の中身は次の通り（where）です
-[] と _::_ という名前の構成子（要素）を持ちます
-[] は List A 型の値（データ）です
-_::_ は :: の左側に A 型の値（データ）を入力して :: の右側に List A 型の値（データ）を入力すると List A 型の値（データ）を出力する構成子です
-
 🛠 開発環境
 
 Language: Agda v2.6.3+
