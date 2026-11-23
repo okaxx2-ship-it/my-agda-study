@@ -1,0 +1,22 @@
+name: Agda Type Check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Agda
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y agda-bin
+
+      - name: Check NatLike.agda
+        run: agda -i . NatLike.agda
