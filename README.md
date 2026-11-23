@@ -1,74 +1,72 @@
 # Formal Logic & Type Theory Laboratory
 
-形式論理学・型理論の実装実験室
+**An Experimental Playground for Formal Logic and Type Theory — Agda Edition**
 
-概要
+## Overview
 
-このリポジトリは、形式論理学や型理論の学習過程で登場するさまざまな概念を、Agdaを使って実際に定義・実装し、その構造や性質を確かめるための個人的な実験場です。
+This repository is a personal learning laboratory for exploring concepts from formal logic, mathematical logic, and type theory through Agda.
 
-主な題材は、論理学の講義動画や文献を通じて学んだ内容です。
+The goal is not merely to understand abstract concepts through lectures and textbooks, but to express them as formal definitions, experiment with their structures, and examine their properties through type checking.
 
-講義で説明される抽象的な概念を、単に知識として理解するだけでなく、形式的な定義として記述し、型検査を通じてその扱いを確かめることを目指します。
+This is neither a professional software development project nor an academic research project. It is simply a record of independent learning, experimentation, and intellectual curiosity.
 
-主な実験テーマ
+## Areas of Exploration
 
-1. 帰納的定義
+The main topics of interest include:
 
-基本的な対象を生成規則によって構成する実験。
+- **Inductive Definitions** — Defining natural number-like structures, terms, logical formulas, and other syntactic objects.
+- **Formal Languages** — Exploring syntax and semantics, object languages, and metalanguages.
+- **Propositions and Proofs** — Understanding propositions as types and proofs as terms.
+- **Curry–Howard Correspondence** — Exploring the relationship between logical systems and type systems.
+- **Induction and Recursion** — Defining recursive functions and constructing proofs over inductive data types.
+- **Dependent Type Theory** — Learning the foundations of dependent types through Agda's type system.
 
-- 自然数もどき（ゼロと後者関数による帰納的構成）
-- 変数や記号列の定義
-- 論理結合子を用いた論理式の構成
-- 論理式の構文木
-- 再帰的な関数定義と構造帰納法
+## Current Experiments
 
-2. 形式言語と論理式
+### 01. Inductive Definition of Natural Number-Like Objects
 
-形式言語の構文をデータ型として表現する実験。
+**File:** `NatLike.agda`
 
-- 命題変数と論理結合子
-- 論理式の整式性
-- 論理式に対する再帰的操作
-- 論理式の評価と意味論
-- 構文と意味の区別
+This experiment explores how a structure resembling the natural numbers can be defined inductively using a zero constructor and a successor constructor.
 
-3. 型理論と証明
+```agda
+data NatLike : Set where
+  zero : NatLike
+  suc  : NatLike → NatLike
+```
 
-Agdaの型システムを利用して、論理と証明の関係を探る実験。
+The definition follows two formation rules:
 
-- 帰納型とその構成子
-- 命題と型の対応
-- 証明とプログラムの対応
-- Curry–Howard対応
-- 簡単な定理の形式的証明
+1. `zero` is an element of `NatLike`.
+2. If `n` is an element of `NatLike`, then `suc n` is also an element of `NatLike`.
 
-基本方針
+Using these constructors, the examples `one`, `two`, and `three` are also defined.
 
-このリポジトリは、完成されたライブラリや実用的なソフトウェアの開発を目的とするものではありません。
+The purpose of this experiment is to understand how inductive definitions work and how constructors determine the structure of a data type.
 
-むしろ、次のような試行錯誤を記録する場所です。
+## Type Checking
 
-- 数学的・論理的な定義をAgdaで表現してみる
-- 定義がうまくいかない理由を型エラーから考える
-- 同じ対象に対する異なる定義を比較する
-- 帰納的定義と再帰的定義の関係を確かめる
-- 講義で学んだ概念を小さなプログラムとして再構成する
+GitHub Actions is configured to automatically type-check Agda source files.
 
-理解したつもりの概念を、実際に定義できるかどうか試してみる。
+The workflow is intended to check definitions whenever changes are pushed to the repository, helping maintain consistency as the experiments evolve.
 
-それがこのリポジトリの基本的な目的です。
+## Related Repositories
 
-開発環境
+The same concepts are also explored using other proof assistants:
 
-- Language: Agda v2.6.3+
-- Library: Agda Standard Library
-- Environment: GitHub Codespaces / VS Code
-- Editor: agda-mode
+- [Lean 4 — lean-experiments](https://github.com/okaxx2-ship-it/lean-experiments)
+- [Coq / Rocq — coq-experiments](https://github.com/okaxx2-ship-it/coq-experiments)
 
-備考
+By expressing similar definitions and proofs in different systems, I hope to gain a deeper understanding of their similarities, differences, and underlying logical foundations.
 
-個人学習用のリポジトリです。
+## A Personal Note
 
-内容には未完成の定義、試行錯誤の記録、理解不足による誤りなどが含まれる可能性があります。
+I am neither an engineer nor a researcher, just someone fascinated by logic, formal systems, and the foundations of mathematics.
 
-学習の進展に応じて、随時修正・拡張していきます。
+This repository is a place to learn by experimenting, making mistakes, asking questions, and gradually building a better understanding.
+
+No grand claims, no particular destination — just curiosity and the joy of understanding.
+
+---
+
+*This repository is a personal learning record. Some experiments may be incomplete, exploratory, or subject to revision.*
